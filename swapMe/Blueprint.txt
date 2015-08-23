@@ -1,0 +1,5 @@
+TODO
+
+-   Create Waffle.io
+-   Simple notes app (vea)
+-   Create sidebar menu
