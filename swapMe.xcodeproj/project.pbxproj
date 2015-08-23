@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		98E4F18BF9CE0DEE43DAADD1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EA7BC16B3528396F4AE0BF /* libPods.a */; };
+		FE18C2B91B7F415000193148 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE18C2B81B7F415000193148 /* RootViewController.swift */; };
+		FE18C2BB1B7F44D700193148 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE18C2BA1B7F44D700193148 /* InventoryViewController.swift */; };
+		FE6474BD1B7BC1FD002BECA1 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6474BC1B7BC1FD002BECA1 /* CustomSegue.swift */; };
 		FE85A43D1B78F70A00D217DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE85A43C1B78F70A00D217DA /* AppDelegate.swift */; };
-		FE85A43F1B78F70A00D217DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE85A43E1B78F70A00D217DA /* ViewController.swift */; };
+		FE85A43F1B78F70A00D217DA /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE85A43E1B78F70A00D217DA /* MarketViewController.swift */; };
 		FE85A4421B78F70A00D217DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE85A4401B78F70A00D217DA /* Main.storyboard */; };
 		FE85A4441B78F70A00D217DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE85A4431B78F70A00D217DA /* Images.xcassets */; };
 		FE85A4471B78F70A00D217DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE85A4451B78F70A00D217DA /* LaunchScreen.xib */; };
@@ -26,10 +30,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7599E3D5CDAB3ED935BF4B5C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8EB2F987564002E54F75717F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C1EA7BC16B3528396F4AE0BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE18C2B31B7F23FA00193148 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		FE18C2B81B7F415000193148 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FE18C2BA1B7F44D700193148 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		FE6474BC1B7BC1FD002BECA1 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		FE85A4371B78F70A00D217DA /* swapMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swapMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE85A43B1B78F70A00D217DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE85A43C1B78F70A00D217DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE85A43E1B78F70A00D217DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE85A43E1B78F70A00D217DA /* MarketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewController.swift; sourceTree = "<group>"; };
 		FE85A4411B78F70A00D217DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE85A4431B78F70A00D217DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FE85A4461B78F70A00D217DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -43,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98E4F18BF9CE0DEE43DAADD1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +68,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33663B667847E400678A4332 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7599E3D5CDAB3ED935BF4B5C /* Pods.debug.xcconfig */,
+				8EB2F987564002E54F75717F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6532766B86144294D5DDD427 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1EA7BC16B3528396F4AE0BF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE85A42E1B78F70A00D217DA = {
 			isa = PBXGroup;
 			children = (
 				FE85A4391B78F70A00D217DA /* swapMe */,
 				FE85A44F1B78F70A00D217DA /* swapMeTests */,
 				FE85A4381B78F70A00D217DA /* Products */,
+				33663B667847E400678A4332 /* Pods */,
+				6532766B86144294D5DDD427 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +108,13 @@
 		FE85A4391B78F70A00D217DA /* swapMe */ = {
 			isa = PBXGroup;
 			children = (
+				FE18C2B31B7F23FA00193148 /* Bridging-Header.h */,
 				FE85A43C1B78F70A00D217DA /* AppDelegate.swift */,
-				FE85A43E1B78F70A00D217DA /* ViewController.swift */,
+				FE85A43E1B78F70A00D217DA /* MarketViewController.swift */,
+				FE18C2BA1B7F44D700193148 /* InventoryViewController.swift */,
+				FE18C2B81B7F415000193148 /* RootViewController.swift */,
 				FE85A4401B78F70A00D217DA /* Main.storyboard */,
+				FE6474BC1B7BC1FD002BECA1 /* CustomSegue.swift */,
 				FE85A4431B78F70A00D217DA /* Images.xcassets */,
 				FE85A4451B78F70A00D217DA /* LaunchScreen.xib */,
 				FE85A43A1B78F70A00D217DA /* Supporting Files */,
@@ -119,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE85A4561B78F70A00D217DA /* Build configuration list for PBXNativeTarget "swapMe" */;
 			buildPhases = (
+				2CC8A17154A2700800FC8DFB /* Check Pods Manifest.lock */,
 				FE85A4331B78F70A00D217DA /* Sources */,
 				FE85A4341B78F70A00D217DA /* Frameworks */,
 				FE85A4351B78F70A00D217DA /* Resources */,
+				59848BE2EFA3A60B97901FBE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -207,12 +244,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2CC8A17154A2700800FC8DFB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		59848BE2EFA3A60B97901FBE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE85A4331B78F70A00D217DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE85A43F1B78F70A00D217DA /* ViewController.swift in Sources */,
+				FE18C2B91B7F415000193148 /* RootViewController.swift in Sources */,
+				FE85A43F1B78F70A00D217DA /* MarketViewController.swift in Sources */,
+				FE18C2BB1B7F44D700193148 /* InventoryViewController.swift in Sources */,
+				FE6474BD1B7BC1FD002BECA1 /* CustomSegue.swift in Sources */,
 				FE85A43D1B78F70A00D217DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,21 +411,25 @@
 		};
 		FE85A4571B78F70A00D217DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7599E3D5CDAB3ED935BF4B5C /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = swapMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saifjilani/Desktop/Work/Computer Science/iOS/swapMe/swapMe/Bridging-Header.h";
 			};
 			name = Debug;
 		};
 		FE85A4581B78F70A00D217DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EB2F987564002E54F75717F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = swapMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/saifjilani/Desktop/Work/Computer Science/iOS/swapMe/swapMe/Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +486,7 @@
 				FE85A4581B78F70A00D217DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE85A4591B78F70A00D217DA /* Build configuration list for PBXNativeTarget "swapMeTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +495,7 @@
 				FE85A45B1B78F70A00D217DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
