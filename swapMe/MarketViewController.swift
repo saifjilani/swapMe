@@ -10,12 +10,17 @@
 
 import UIKit
 
-class MarketViewController: RootViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate
+class MarketViewController: ICarouselViewController, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, iCarouselDataSource, iCarouselDelegate
 
 {
+    @IBOutlet var carousel: iCarousel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        carousel.type = .CoverFlow2
+        println("market loaded ")
         
     }
     
