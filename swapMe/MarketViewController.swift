@@ -14,10 +14,20 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
 
 {
     @IBOutlet var carousel: iCarousel!
+    @IBOutlet var hamburgerButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Hamburger navigation
+        if self.revealViewController() != nil
+        {
+            hamburgerButton.target = self.revealViewController()
+            hamburgerButton.action = "revealToggle:"
+            //Might need to remove this because of icarousel
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         //Recognize swipes
         var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
@@ -29,8 +39,7 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         
         //Carousel Features
         carousel.bounces = true
-        carousel.type = .CoverFlow2
-        println("market loaded ")
+        carousel.type = .Cylinder
         
     }
     
@@ -40,11 +49,7 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         super.loginSetup()
     }
 
-    @IBAction func performSegue(sender: AnyObject)
-    {
-        self.performSegueWithIdentifier("marketToInventorySegue", sender: self)
-    }
-    
+
     @IBAction func logOut(sender: AnyObject)
     {
         //Parse logout
@@ -62,6 +67,7 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         //Delete image with down swipe
         if (sender.direction == .Down)
         {
+            //func
             if (self.carousel.numberOfItems > 0)
             {
                 var index = self.carousel.currentItemIndex
@@ -74,6 +80,28 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func removeButton(sender: AnyObject)
+    {
+        //func
+        if (self.carousel.numberOfItems > 0)
+        {
+            var index = self.carousel.currentItemIndex
+            self.items.removeAtIndex(index)
+            self.carousel.removeItemAtIndex(index, animated: true)
+        }
+    }
+    
+    @IBAction func inventoryButton(sender: AnyObject)
+    {
+        self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
+    }
+    
+    @IBAction func likeButton(sender: AnyObject)
+    {
+        self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
     }
     
     
