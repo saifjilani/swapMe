@@ -16,6 +16,7 @@
 		FE18C2B91B7F415000193148 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE18C2B81B7F415000193148 /* RootViewController.swift */; };
 		FE18C2BB1B7F44D700193148 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE18C2BA1B7F44D700193148 /* InventoryViewController.swift */; };
 		FE6474BD1B7BC1FD002BECA1 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6474BC1B7BC1FD002BECA1 /* CustomSegue.swift */; };
+		FE7DC6B41B946D8C0030B487 /* blueprint.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE7DC6B31B946D8C0030B487 /* blueprint.txt */; };
 		FE85A43D1B78F70A00D217DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE85A43C1B78F70A00D217DA /* AppDelegate.swift */; };
 		FE85A43F1B78F70A00D217DA /* MarketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE85A43E1B78F70A00D217DA /* MarketViewController.swift */; };
 		FE85A4421B78F70A00D217DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE85A4401B78F70A00D217DA /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 		FE18C2B81B7F415000193148 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FE18C2BA1B7F44D700193148 /* InventoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		FE6474BC1B7BC1FD002BECA1 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
+		FE7DC6B31B946D8C0030B487 /* blueprint.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = blueprint.txt; sourceTree = "<group>"; };
 		FE85A4371B78F70A00D217DA /* swapMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swapMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE85A43B1B78F70A00D217DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE85A43C1B78F70A00D217DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				FE09CEA61B8B35920047CAF1 /* iCarousel */,
 				FE09CEA51B8B35540047CAF1 /* SWRevealViewController */,
 				FE18C2B31B7F23FA00193148 /* Bridging-Header.h */,
+				FE7DC6B31B946D8C0030B487 /* blueprint.txt */,
 				FE85A43C1B78F70A00D217DA /* AppDelegate.swift */,
 				FE85A43E1B78F70A00D217DA /* MarketViewController.swift */,
 				FE09CEB21B8B3B810047CAF1 /* ICarouselViewController.swift */,
@@ -267,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7DC6B41B946D8C0030B487 /* blueprint.txt in Resources */,
 				FE85A4421B78F70A00D217DA /* Main.storyboard in Resources */,
 				FE85A4471B78F70A00D217DA /* LaunchScreen.xib in Resources */,
 				FE85A4441B78F70A00D217DA /* Images.xcassets in Resources */,
