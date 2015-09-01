@@ -77,6 +77,10 @@ class ICarouselViewController: RootViewController, iCarouselDataSource, iCarouse
         {
             return value * 1.1
         }
+        if (option == .Wrap)
+        {
+            return 1
+        }
         return value
     }
 }
