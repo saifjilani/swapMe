@@ -29,14 +29,12 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        //Recognize swipes
-        var upSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        var downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipes:"))
-        upSwipe.direction = .Up
-        downSwipe.direction = .Down
-        self.carousel.addGestureRecognizer(upSwipe)
-        self.carousel.addGestureRecognizer(downSwipe)
+        //Panning
+        var panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan:")
+        self.carousel.addGestureRecognizer(panRecognizer)
         
+        
+
         //Carousel Features
         carousel.bounces = true
         carousel.type = .Cylinder
@@ -55,27 +53,47 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         //Parse logout
         super.logoutAction()
     }
+    var originalLocation:CGPoint = CGPointMake(0, 0)
     
-    //Handling swipes
-    func handleSwipes(sender:UISwipeGestureRecognizer)
+    //detect Pan
+    // 150
+    func detectPan(recognizer:UIPanGestureRecognizer)
     {
-        //Segue to inventory with up swipe
-        if (sender.direction == .Up)
+        
+        var translation = recognizer.translationInView(self.carousel.currentItemView.superview!)
+        self.carousel.currentItemView.center = CGPointMake(originalLocation.x + translation.x, originalLocation.y + translation.y)
+        
+        if (recognizer.state == UIGestureRecognizerState.Ended)
         {
-            self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
-        }
-        //Delete image with down swipe
-        if (sender.direction == .Down)
-        {
-            //func
-            if (self.carousel.numberOfItems > 0)
+            println("touches ended")
+            //Snap item back if not moved enough
+            if ((self.carousel.currentItemView.center.y > (-50)) && (self.carousel.currentItemView.center.y < 250))
             {
-                var index = self.carousel.currentItemIndex
-                self.items.removeAtIndex(index)
-                self.carousel.removeItemAtIndex(index, animated: true)
+                self.carousel.currentItemView.center = originalLocation
             }
+            //Otherwise delete it
+            else
+            {
+                //func this
+                if (self.carousel.numberOfItems > 0)
+                {
+                    var index = self.carousel.currentItemIndex
+                    self.items.removeAtIndex(index)
+                    self.carousel.removeItemAtIndex(index, animated: true)
+                }
+            }
+            
         }
     }
+
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    {
+        println("touches began")
+        // Remember original location
+        originalLocation = self.carousel.currentItemView.center
+        
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -103,6 +121,7 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
     {
         self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
     }
+    
     
     
 }

@@ -33,7 +33,7 @@ class ICarouselViewController: RootViewController, iCarouselDataSource, iCarouse
         return items.count
     }
     
-    func carousel(carousel: iCarousel!, viewForItemAtIndex index: Int, reusingView view: UIView!) -> UIView!
+    func carousel(carousel:iCarousel!, viewForItemAtIndex index:Int, reusingView view:UIView!) -> UIView!
     {
         var label: UILabel! = nil
         var newView = view
@@ -54,12 +54,12 @@ class ICarouselViewController: RootViewController, iCarouselDataSource, iCarouse
             label.font = label.font.fontWithSize(50)
             label.tag = 1
             newView.addSubview(label)
-    }
-    else
-    {
-        //get a reference to the label in the recycled view
-        label = newView.viewWithTag(1) as! UILabel!
-    }
+        }
+        else
+        {
+            //get a reference to the label in the recycled view
+            label = newView.viewWithTag(1) as! UILabel!
+        }
     
         //set item label
         //remember to always set any properties of your carousel item
