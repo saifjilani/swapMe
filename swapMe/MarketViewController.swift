@@ -25,7 +25,6 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         {
             hamburgerButton.target = self.revealViewController()
             hamburgerButton.action = "revealToggle:"
-            //Might need to remove this because of icarousel
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -33,8 +32,6 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         var panRecognizer = UIPanGestureRecognizer(target:self, action:"detectPan:")
         self.carousel.addGestureRecognizer(panRecognizer)
         
-        
-
         //Carousel Features
         carousel.bounces = true
         carousel.type = .Cylinder
@@ -53,16 +50,20 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         //Parse logout
         super.logoutAction()
     }
+    
+    //MARK: Pan Handling
+    
+    //Store location of item before pan
     var originalLocation:CGPoint = CGPointMake(0, 0)
     
     //detect Pan
-    // 150
     func detectPan(recognizer:UIPanGestureRecognizer)
     {
-        
+        //Carry out translation
         var translation = recognizer.translationInView(self.carousel.currentItemView.superview!)
         self.carousel.currentItemView.center = CGPointMake(originalLocation.x + translation.x, originalLocation.y + translation.y)
         
+        //Determine if item should snap back or if item should be deleted
         if (recognizer.state == UIGestureRecognizerState.Ended)
         {
             println("touches ended")
@@ -74,18 +75,13 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
             //Otherwise delete it
             else
             {
-                //func this
-                if (self.carousel.numberOfItems > 0)
-                {
-                    var index = self.carousel.currentItemIndex
-                    self.items.removeAtIndex(index)
-                    self.carousel.removeItemAtIndex(index, animated: true)
-                }
+                deleteItem()
             }
             
         }
     }
 
+    //Detect start of panning
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
     {
         println("touches began")
@@ -100,10 +96,22 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //Button for deleting an item
     @IBAction func removeButton(sender: AnyObject)
     {
-        //func
+        deleteItem()
+    }
+    
+    //Button for liking an item
+    @IBAction func likeButton(sender: AnyObject)
+    {
+        deleteItem()
+    }
+    
+    //Function to delete an item
+    func deleteItem() -> Void
+    {
+        println("items \(self.carousel.numberOfItems)")
         if (self.carousel.numberOfItems > 0)
         {
             var index = self.carousel.currentItemIndex
@@ -112,15 +120,12 @@ class MarketViewController: ICarouselViewController, PFLogInViewControllerDelega
         }
     }
     
+    //Button for segueing to inventory
     @IBAction func inventoryButton(sender: AnyObject)
     {
         self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
     }
     
-    @IBAction func likeButton(sender: AnyObject)
-    {
-        self.performSegueWithIdentifier("marketToInventorySegue", sender: sender)
-    }
     
     
     
